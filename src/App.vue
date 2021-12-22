@@ -1,27 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <input type="button" @click="toggle" value="toggle outer" />
+  <div v-if="visible">
+    <div v-for="n in 100" :key="n">
+      <div v-once>
+        <HeavyComponent/>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+
+import HeavyComponent from './components/HeavyComponent.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
+    HeavyComponent
+  },
+  data () {
+    return {
+      visible: false
+    }
+  },
+  methods: {
+    toggle () {
+      this.visible = !this.visible
+    }
   }
 })
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
