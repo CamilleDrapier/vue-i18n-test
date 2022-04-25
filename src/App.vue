@@ -1,27 +1,23 @@
 <template>
-  <input type="button" @click="toggle" value="toggle outer" />
+  <input type="button" @click="toggle" value="show" v-if="!visible" />
   <div v-if="visible">
-    <div v-for="n in 100" :key="n">
-      <div v-once>
-        <HeavyComponent/>
-      </div>
-    </div>
+    <DisappearComponent @toggle="toggle"/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import HeavyComponent from './components/HeavyComponent.vue'
+import DisappearComponent from './components/DisappearComponent.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    HeavyComponent
+    DisappearComponent
   },
   data () {
     return {
-      visible: false
+      visible: true
     }
   },
   methods: {
