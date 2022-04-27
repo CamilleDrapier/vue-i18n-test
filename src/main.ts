@@ -5,7 +5,7 @@ import { createI18n } from 'vue-i18n'
 import App from './App.vue'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const i18n = createI18n({
+export const i18n = createI18n({
   locale: 'en'
 })
 
