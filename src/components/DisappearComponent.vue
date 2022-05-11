@@ -3,7 +3,6 @@
 </template>
 
 <script lang="ts">
-import { i18n } from '@/main'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -15,7 +14,7 @@ export default defineComponent({
         this.$emit('toggle')
         setTimeout(resolve)
       })
-      alert(i18n.global.t('ALERT'))
+      alert(this.$t('ALERT'))
     }
   }
 })

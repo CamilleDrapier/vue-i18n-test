@@ -13,4 +13,10 @@ const app = createApp(App)
 
 app.use(i18n)
 
+app.use({
+  install (appInner) {
+    appInner.config.globalProperties.$t = i18n.global.t
+  }
+})
+
 app.mount('#app')
